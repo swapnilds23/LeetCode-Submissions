@@ -9,21 +9,36 @@
  * }
  */
 class Solution {
+    //using stack;
+    // public ListNode reverseList(ListNode head) {
+    //     if(head == null)
+    //         return head;
+    //     Deque<ListNode> stack = new LinkedList<>();
+    //     ListNode current = head;
+    //     while(current.next != null){
+    //         stack.push(current);
+    //         current = current.next;
+    //     }
+    //     head = current;
+    //     while(!stack.isEmpty()){
+    //         current.next = stack.pop();
+    //         current= current.next;
+    //     }
+    //     current.next =null;
+    //     return head;
+    // }
+    
+    //By reversing the pointers
     public ListNode reverseList(ListNode head) {
-        if(head == null)
-            return head;
-        Deque<ListNode> stack = new LinkedList<>();
-        ListNode current = head;
-        while(current.next != null){
-            stack.push(current);
-            current = current.next;
+         if(head == null)
+             return head;
+        ListNode prev= null;
+        while(head !=null){
+            ListNode nextNode = head.next;
+            head.next = prev;
+            prev = head;
+            head = nextNode;
         }
-        head = current;
-        while(!stack.isEmpty()){
-            current.next = stack.pop();
-            current= current.next;
-        }
-        current.next =null;
-        return head;
+        return prev;
     }
 }
