@@ -14,10 +14,6 @@
  * }
  */
 class Solution {
-public boolean check(TreeNode p, TreeNode q) {
-
-    return true;
-  }
     
     public boolean isSameTree(TreeNode p, TreeNode q) {
            if (p == null && q == null) return true;
